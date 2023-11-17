@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="css/main.css" rel="stylesheet" />
+    <title>Document</title>
+
+
+
+
+<body>
+    <div id="page">
+
+    <div class="onboardingGesamtScreen">
+        <div class="oberes-drittel">
+            <div class="onboardingTextContainer">
+                <div class="onboardingTextbereich" >
+               
+                    Noch Unentschlossen?<br>
+                    Im <strong>Katalog</strong> findest du viele<br>
+                    <strong>Einrichtungsideen</strong> wir 
+                    vergleichen die Preise bei <br>
+                    führenden 
+                <span class="text-mit-rahmen">
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <polygon points="0,20 100,10 100,70 0,85" style="fill: none; stroke: rgba(255,102,0,1); stroke-width: 2"/>
+                    </svg>
+                    Möbelhäusern&nbsp; 
+                </span> 
+
+                </div>
+            </div>
+        </div>
+        <div class="untere-zwei-drittel onboarding2BGImg">
+
+                <ul class="rechtsbuendige-liste">
+
+                    <li>
+                        <svg width="10" height="10" viewBox="0 0 20 20">
+                            <circle cx="10" cy="10" r="8" stroke="white" stroke-width="2" fill="none" />
+                        </svg>
+                    </li>
+
+                    <li>
+                        <svg width="10" height="10" viewBox="0 0 20 20">
+                            <circle cx="10" cy="10" r="8" stroke="white" stroke-width="2" fill="none" />
+                        </svg>
+                    </li>
+                    <li><img  src="images/v1_1701.png" alt="Bildbeschreibung"></li>
+
+                </ul>
+            
+            
+              
+
+                <!-- Container für die Animation -->
+                <div id="animationsContainer" class="versteckt">  <div class="animationsInhalt">Lade...</div>
+            </div>
+
+
+
+
+
+
+            <div class="onboardingButtonArea">
+                <a  href="onboarding2.html" class="seite-wechseln">
+                    <div class="onboardingBtnWeiss">
+                        <span class="onboardingSchriftOrange">&#x3C;</span>
+                    </div>
+                </a> 
+                <a href="anfrage.html">
+                    <div class="onboardingBtnOrange">
+                        <span class="onboardingSchriftWeiss">&#x3E; </span>
+                    </div>   
+                </a> 
+            </div>
+        </div>
+    </div>
+    <div class="loader"></div>
+</div>
+</body>
+
+<script>
+const appRoot = document.getElementById("page");
+const navLinks = document.querySelectorAll(".navigation a");
+const loader = document.querySelector(".loader");
+
+const startTransition = (route) => {
+  loader.style.transform = "translateX(0%)";
+  appRoot.dataset.route = route;
+};
+
+const endTransition = () => {
+  loader.addEventListener("transitionend", () => {
+    loader.style.transform = "translateX(-100%)";
+  });
+};
+
+navLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const currentRoute = e.target.getAttribute('onClick').split("'")[1];
+    startTransition(currentRoute);
+
+    // Aktualisieren Sie die aktive Klasse für die Navigationslinks
+    navLinks.forEach(lnk => lnk.classList.remove('active'));
+    e.target.classList.add('active');
+
+    setTimeout(() => {
+      endTransition();
+    }, 900); // Wartezeit sollte der Animationsdauer entsprechen
+  });
+});
+
+window.addEventListener("load", () => {
+  startTransition('a'); // Starten Sie mit der Route 'a'
+});
+
+</script>
+
+</html>

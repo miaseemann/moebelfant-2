@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/main.css" rel="stylesheet" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+    <style>
+        .popup {
+            position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    height: calc(100vh - 10px - 80px); /* Höhe der Header-Bar einsetzen */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+        }
+        .popup.shadow {
+            box-shadow: 0px -3px 7px 5px #dddcdcc2;
+        }
+
+
+        .popup.open {
+            transform: translateY(0);
+            padding-top: 10px;
+        }
+
+        /* Hier können Sie weitere CSS-Stile hinzufügen */
+    </style>
+</head>
+<body>
+    <div id="popup" class="popup">
+        <!-- Inhalt des Popups -->
+    </div>
+
+    <div class="header-bar">
+        <div class="header-left">
+            <div id="lottie-hamburger" style="width: 60px; height: 60px;"></div>
+        </div>
+        <div class="header-center">
+            <p class="headerHeading">Kategorien</p>
+        </div>
+        <div class="header-right" style="display: flex; align-items: center;">
+
+            <div id="lottie-bell" style="width: 59px; height: 59px; display: none;"></div>
+            <!-- Container für Taschen-Animation -->
+            <div id="lottie-bag" style="width: 40px; height: 40px; display: none;"></div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="content-container">
+        <div class="content-box">
+            <img src="images/v12_3.png" alt="Bild 1">
+            <h3>Titel 1</h3>
+        </div>
+    
+        <div class="content-box">
+            <img src="images/v1_1681.png" alt="Bild 2">
+            <h3>Titel 2</h3>
+        </div>
+        <div class="content-box">
+            <img src="images/v1_1701.png" alt="Bild 2">
+            <h3>Titel 2</h3>
+        </div>
+        <div class="content-box">
+            <img src="images/v2_70.png" alt="Bild 2">
+            <h3>Titel 2</h3>
+        </div>
+
+        <div class="content-box">
+            <img src="images/v1_1681.png" alt="Bild 2">
+            <h3>Titel 2</h3>
+        </div>
+        <div class="content-box">
+            <img src="images/v1_1701.png" alt="Bild 2">
+            <h3>Titel 2</h3>
+        </div>
+        <div class="content-box">
+            <img src="images/v2_70.png" alt="Bild 2">
+            <h3>Titel 2</h3>
+        </div>
+        <!-- Weitere Boxen nach Bedarf hinzufügen -->
+    </div>
+    
+
+
+
+
+
+    <script>
+        let neueNachricht = 1; // Beispielwert
+        let warenkorbAnzahl = 1; // Beispielwert
+
+        var bellAnimation = lottie.loadAnimation({
+            container: document.getElementById('lottie-bell'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: false,
+            path: 'glocke.json'
+        });
+
+        var bagAnimation = lottie.loadAnimation({
+            container: document.getElementById('lottie-bag'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: false,
+            path: 'warenkorb.json'
+        });
+
+        function updateNotificationIcon() {
+            const notificationLottie = document.getElementById('lottie-bell');
+            if (neueNachricht > 0) {
+                notificationLottie.style.display = 'block';
+                bellAnimation.goToAndPlay(0, true);
+            } else {
+                notificationLottie.style.display = 'none';
+            }
+        }
+
+        function updateCartIcon() {
+            const cartLottie = document.getElementById('lottie-bag');
+            if (warenkorbAnzahl > 0) {
+                cartLottie.style.display = 'block';
+                bagAnimation.goToAndPlay(0, true);
+            } else {
+                cartLottie.style.display = 'none';
+            }
+        }
+
+        updateNotificationIcon();
+        updateCartIcon();
+
+        var hamburgerAnimation = lottie.loadAnimation({
+            container: document.getElementById('lottie-hamburger'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            path: 'hamburger.json'
+        });
+
+        var isMenuOpen = false;
+
+        document.getElementById('lottie-hamburger').addEventListener('click', function() {
+            var popup = document.getElementById('popup');
+            if (isMenuOpen) {
+                hamburgerAnimation.playSegments([25, 0], true);
+                popup.classList.remove('open', 'shadow');
+            } else {
+                hamburgerAnimation.playSegments([0, 25], true);
+                popup.classList.add('open', 'shadow');
+            }
+            isMenuOpen = !isMenuOpen;
+        });
+    </script>
+</body>
+</html>

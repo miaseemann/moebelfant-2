@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="css/main.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+  <div id="page">
+    <div class="splashBG">  
+        <div class="splashLogo"><img src="images/v1_1701.png"></div>
+        <div class="splashButtonArea">
+          
+
+            <a class="" href="onboarding1.html">
+            <div class="splashBtnWeiss">
+                <span class="splashSchriftOrange">Jetzt Preise vergleichen</span>
+            </div>
+        </a> 
+
+        <a href="login.html">
+            <div class="splashBtnOrange">
+                <span class="splashSchriftWeiss">Login</span>
+            </div>   
+        </a> 
+        </div>
+    </div>
+    <div class="loader"></div>
+  </div>
+  </body>
+  
+  <script>
+  const appRoot = document.getElementById("page");
+  const navLinks = document.querySelectorAll(".navigation a");
+  const loader = document.querySelector(".loader");
+  
+  const startTransition = (route) => {
+    loader.style.transform = "translateX(0%)";
+    appRoot.dataset.route = route;
+  };
+  
+  const endTransition = () => {
+    loader.addEventListener("transitionend", () => {
+      loader.style.transform = "translateX(-100%)";
+    });
+  };
+  
+  navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const currentRoute = e.target.getAttribute('onClick').split("'")[1];
+      startTransition(currentRoute);
+  
+      // Aktualisieren Sie die aktive Klasse für die Navigationslinks
+      navLinks.forEach(lnk => lnk.classList.remove('active'));
+      e.target.classList.add('active');
+  
+      setTimeout(() => {
+        endTransition();
+      }, 900); // Wartezeit sollte der Animationsdauer entsprechen
+    });
+  });
+  
+  window.addEventListener("load", () => {
+    startTransition('a'); // Starten Sie mit der Route 'a'
+  });
+  
+  </script>
+  
+  </html>

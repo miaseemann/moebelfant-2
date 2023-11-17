@@ -1,0 +1,677 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration-line: none;
+}
+
+a :hover{
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+   /* -- Roboto-Family -- */
+   @font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto/Roboto-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src:  url('./fonts/Roboto/Roboto-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src:  url('./fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto/Roboto-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src:  url('./fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src:  url('./fonts/Roboto/Roboto-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto/Roboto-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto/Roboto-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+  /* -- Roboto-Condensed-Family -- */
+  
+  @font-face {
+    font-family: 'Roboto Condensed';
+    src:  url('./fonts/Roboto/RobotoCondensed-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Roboto Condensed';
+    src: url('./fonts/Roboto/RobotoCondensed-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Roboto Condensed';
+    src: url('./fonts/Roboto/RobotoCondensed-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Roboto Condensed';
+    src: url('./fonts/Roboto/RobotoCondensed-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+  }
+
+
+body {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  background-color: #DDDDDD;
+}
+
+
+/*BILDER Backgrouds*/
+.onboarding1BGImg{
+  background-image: url('../images/v1_1681.png') !important; /* Pfad zu Ihrem Hintergrundbild */
+}
+.onboarding2BGImg{
+  background-image: url("../images/v2_70.png") !important; 
+}
+.onboarding3BGImg{
+  background-image: url("../img/Onboarding_1.jpg");
+}
+.signUpBGImg{
+  background-image: url("../img/Onboarding_1.jpg");
+}
+.loginBgImg{
+  background-image: url("../images/v12_3.png") !important;
+}
+
+
+.heading{
+  line-height: 4rem;
+  padding-left: 10%;
+  font-family: 'Roboto', sans-serif; /* Standard-Schriftart für den gesamten Body */
+  font-size: 2rem;
+}
+
+
+.headerHeading{
+  line-height: 1 rem;
+  font-family: 'Roboto', sans-serif; /* Standard-Schriftart für den gesamten Body */
+  font-size: 1.4rem;
+  color:#151717 !important; 
+
+}
+
+#animationsContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #414244; /* Startfarbe */
+  z-index: 1000;
+  opacity: 0.0;
+  transform: scale(0.1) rotate(0deg);
+  transition: all 3.0s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animationsInhalt {
+  color: white;
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.2s; /* Verzögerte Erscheinung */
+}
+
+.versteckt {
+  display: none;
+}
+
+
+
+.versteckt {
+  display: none;
+}
+
+
+
+/************ SPLASH SCREEN *************/
+
+
+.splashBG {
+  width: 100%;
+  height: 100vh;
+  background: url("../images/v1_1700.png") center center / cover no-repeat;
+  position: relative;
+}
+
+.splashLogo {
+  width: 25%; /* Anpassung für Responsivität */
+  height: auto; /* Höhe automatisch anpassen */
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splashLogo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.splashButtonArea{
+  width: 80%; /* Anpassung für Responsivität */
+  max-width: 325px; /* Maximale Breite festlegen */
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.splashBtnOrange {
+  width: 100%; /* Volle Breite des Elternelements */
+  height: 50px;
+  background: rgba(255,102,0,1);
+  border-radius: 13px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px; /* Abstand zwischen den Buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splashSchriftWeiss {
+  color: rgba(255,255,255,1);
+  font-family: 'Roboto', sans-serif; /* Standard-Schriftart für den gesamten Body */
+  font-weight: Bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+.splashBtnWeiss {
+  width: 100%; /* Volle Breite des Elternelements */
+  height: 50px;
+  background: rgba(255,255,255,1);
+  border-radius: 13px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px; /* Abstand zwischen den Buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splashSchriftOrange {
+  color: rgba(255,102,0,1);
+  font-family: 'Roboto', sans-serif; /* Standard-Schriftart für den gesamten Body */
+  font-weight: Bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+
+/*********ENDE SPLASH SCREEN*******/
+
+
+/* Onboarding */
+
+
+.onboardingLogo {
+  width: 25%; /* Anpassung für Responsivität */
+  height: auto; /* Höhe automatisch anpassen */
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.onboardingButtonArea {
+  max-width: 100%; /* Maximale Breite festlegen */
+  position: absolute;
+  bottom: 5%;
+  left: 5%; /* Linker Rand */
+  right: 5%; /* Rechter Rand */
+  display: flex;
+  justify-content: space-between; /* Buttons an gegenüberliegenden Enden */
+}
+
+.onboardingBtnOrange, .onboardingBtnWeiss {
+  width: 50px; /* Quadratische Buttons */
+  height: 50px;
+  border-radius: 13px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onboardingBtnOrange {
+  background: rgba(255,102,0,1);
+  margin-left: auto; /* Verschiebt den orangenen Button nach rechts */
+}
+
+.onboardingBtnWeiss {
+  background: rgba(255,255,255,1);
+}
+
+.onboardingSchriftWeiss, .onboardingSchriftOrange {
+  color: rgba(255,255,255,1);
+  font-family: 'Roboto', sans-serif;
+  font-weight: Bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+.onboardingSchriftOrange {
+  color: rgba(255,102,0,1);
+}
+
+
+
+
+.text-mit-rahmen {
+  position: relative;
+  padding: 20px; 
+  padding-left: 10px;
+  padding-right: 0px;
+  margin-right: 8px;
+  margin-left: 8px;
+  color: rgba(255,102,0,1);
+  font-family: 'Roboto', sans-serif;
+  font-weight: Bold;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.text-mit-rahmen svg {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 1;
+}
+
+
+
+
+.onboardingGesamtScreen {
+  width: 100%;
+  height: 100vh; /* Volle Bildschirmhöhe */
+  display: flex;
+  flex-direction: column;
+}
+
+.oberes-drittel {
+  background-color: white;
+  background-size: cover; /* Sorgt dafür, dass das Bild den Bereich vollständig bedeckt */
+  background-position: center; /* Zentriert das Bild */
+  flex: 1; /* Nimmt 1/3 des verfügbaren Platzes ein */
+  padding-top: 30px;
+}
+
+.onboardingTextbereich{
+  color: rgba(0,0,0,1);
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-size: 2.4rem;
+  line-height: 150%;
+  text-align: left;
+  margin-left: 1%;
+  margin-right: 1%;
+
+}
+
+
+
+.untere-zwei-drittel {
+  background: rgba(255,255,255,1);
+  background-size: cover; /* Sorgt dafür, dass das Bild den Bereich vollständig bedeckt */
+  background-position: center; /* Zentriert das Bild */
+  flex: 2; /* Nimmt 2/3 des verfügbaren Platzes ein */
+  position: relative;
+  justify-content: center;
+
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Vollbildhöhe, verhindert Scrollen */
+  box-sizing: border-box; /* Stellt sicher, dass Padding und Border in die Breite/Höhe einbezogen werden */
+
+}
+
+.onboardingTextContainer {
+  display: flex;
+  justify-content: center; /* Zentriert den inneren Container horizontal */
+  text-align: left; /* Stellt sicher, dass der Text linksbündig ist */
+}
+
+
+
+
+.rechtsbuendige-liste {
+  display: inline;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 15px;
+  list-style: none; /* Entfernt die Standard-Listensymbole */
+  text-align: right; /* Rechtsbündige Ausrichtung des Textes */
+}
+
+.rechtsbuendige-liste li {
+  margin-bottom: 10px; /* Abstand zwischen den Listenelementen */
+  display: inline-block;
+}
+
+.rechtsbuendige-liste img {
+  max-width: 20px; /* Stellt sicher, dass das Bild nicht über den Container hinausgeht */
+  height: 20px; /* Erhält die Bildproportionen */
+  width: 20px;
+  transform: scaleX(-1); 
+}
+
+.loader {
+  position: fixed; /* Fixiert den Ladebalken über dem gesamten Inhalt */
+  top: 0;
+  left: -100%; /* Startposition außerhalb des Bildschirms */
+  width: 100%; /* Volle Breite des Bildschirms */
+  height: 100%; /* Volle Höhe des Bildschirms */
+  background-color: rgba(0, 0, 0, 0.5); /* Halbtransparenter schwarzer Hintergrund */
+  z-index: 9999; /* Stellt sicher, dass der Ladebalken über anderen Elementen liegt */
+  transition: transform 0.1s ease-in-out; /* Animationsdauer und -art */
+}
+
+/* Ende Onboarding */
+
+
+
+/** LOGIN SCREEN **/
+
+
+
+
+/**FORM**/
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 30px;
+  max-width: 100%;
+  border-radius: 20px;
+  padding-left:10%;
+  padding-right:10%;
+  font-family: -apple-system, Roboto, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  justify-content: center;
+}
+
+::placeholder {
+  font-family: -apple-system, Roboto, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form button {
+  align-self: flex-end;
+}
+
+.flex-column > label {
+  color: #151717;
+  font-weight: 600;
+}
+
+.inputForm {
+  border: 1.5px solid #ecedec;
+  border-radius: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  transition: 0.2s ease-in-out;
+
+  margin-bottom: 15px; /* Abstand zwischen den Eingabefeldern */
+}
+
+.input {
+  margin-left: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 95%;
+  height: 100%;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.inputForm:focus-within {
+  border: 1.5px solid rgba(255,102,0,1);
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.flex-row > div > label {
+  font-size: 14px;
+  color: black;
+  font-weight: 400;
+}
+
+.span {
+  font-size: 14px;
+  margin-left: 5px;
+  color:rgba(255,102,0,1);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button-submit {
+  margin: 20px 0 10px 0;
+  background-color: rgba(255,102,0,1);
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.button-submit:hover {
+  background-color: #252727;
+}
+
+.p {
+  text-align: center;
+  color: black;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.btn {
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 10px;
+  border: 1px solid #ededef;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+  border: 1px solid rgba(255,102,0,1);
+  ;
+}
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header-bar {
+  position: sticky;
+  top: 0; /* Fehlendes top hinzugefügt */
+
+  width: 100%;
+  max-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(216, 216, 216, 1);
+  color: white;
+}
+
+.header-left, .header-center, .header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-center {
+  flex-grow: 1; /* Zentriert den mittleren Text */
+  justify-content: center;
+}
+
+i {
+  margin: 0 5px;
+  font-size: 24px;
+}
+
+/* Optional: Stile für die Icons */
+.menu-icon, .bell-icon, .bag-icon {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.content-box {
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  flex-basis: calc(50% - 20px); /* 50% für 2 Boxen pro Zeile, abzüglich des Margins */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-box img {
+  width: 100%; /* Stellt sicher, dass das Bild die gesamte Breite der Box ausfüllt */
+  height: 230px; /* Feste Höhe für alle Bilder */
+  object-fit: cover; /* Behält die Proportionen des Bildes bei, ohne es zu verzerren */
+  border-radius: 10px;
+}
+
+
+.content-box h3 {
+  margin-top: 10px;
+  color: #333;
+}
